@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalle del Servicio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<!-- <body class="bg-gray-100 p-6"> -->
+  <body class="bg-gray-100 text-gray-800">
+  <header class="bg-green-400 text-white">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    <div class="font-semibold text-lg">📘 Plataforma Digital</div>
+    <nav class="space-x-6 text-sm">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="#">Favoritos</a>
+      <a href="#">Contacto</a>
+      <a href="#">Acerca de</a>
+    </nav>
+  </div>
+</header>
+<main class="max-w-3xl mx-auto px-6 py-16">
+  <div class="bg-white p-6 rounded-xl shadow">
+
+  <div class="max-w-3xl mx-auto bg-white p-6 rounded shadow">
+    <img id="imagen" class="mb-4 rounded">
+    <h1 id="nombre" class="text-2xl font-bold mb-2"></h1>
+    <p id="detalle" class="text-gray-700 mb-4"></p>
+
+    <button onclick="guardarFavorito()"
+      class="bg-green-600 text-white px-4 py-2 rounded">
+      Guardar en favoritos
+    </button>
+
+    <a href="servicios.html" class="block mt-4 text-blue-600 underline">
+      Volver al listado
+    </a>
+  </div>
+
+    </div>
+</main>
+
+  <script src="js/data.js"></script>
+  <script src="js/detalle.js"></script>
+  <footer class="bg-green-400 text-white mt-20">
+  <div class="max-w-7xl mx-auto px-6 py-6 text-center text-sm">
+    © 2026 Plataforma Digital
+  </div>
+</footer>
+</body>
+</html>
