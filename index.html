@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataforma Digital — Servicios Digitales</title>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Estilos globales -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+    <!-- ========================= NAVBAR ========================= -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+                    <path d="M4 6h16M4 10h12M4 14h8" />
+                </svg>
+            </div>
+            Plataforma Digital
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="favoritos.html">Favoritos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="acerca.html">Acerca de</a></li>
+        </ul>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ========================= HERO ========================= -->
+    <section class="hero" aria-label="Bienvenida">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+
+        <div class="hero-badge">
+            <span></span>
+            Plataforma líder en servicios digitales
+        </div>
+
+        <h1>Explora nuestros <em>servicios digitales</em></h1>
+        <p>Soluciones educativas, tecnológicas y digitales en una sola plataforma para impulsar tu crecimiento
+            profesional.</p>
+
+        <div class="hero-ctas">
+            <a href="servicios.html" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                Ver servicios
+            </a>
+            <a href="contacto.html" class="btn btn-outline">Contáctanos →</a>
+        </div>
+
+        <div class="hero-stats container">
+            <div class="stat-item">
+                <div class="stat-value">200+</div>
+                <div class="stat-label">Servicios disponibles</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">12k+</div>
+                <div class="stat-label">Usuarios activos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">98%</div>
+                <div class="stat-label">Satisfacción del cliente</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================= SERVICIOS ========================= -->
+    <section id="servicios">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Servicios disponibles</h2>
+                <p>Encuentra el servicio que necesitas para impulsar tu crecimiento</p>
+                <div class="section-line"></div>
+            </div>
+
+            <!-- Filtros por categoría -->
+            <div class="categories reveal" id="categoryFilter">
+                <button class="cat-pill active" data-cat="todos">🌐 Todos</button>
+                <button class="cat-pill" data-cat="tecnologia">💻 Tecnología</button>
+                <button class="cat-pill" data-cat="marketing">📈 Marketing</button>
+                <button class="cat-pill" data-cat="educacion">🎓 Educación</button>
+                <button class="cat-pill" data-cat="diseno">🎨 Diseño</button>
+                <button class="cat-pill" data-cat="seguridad">🔐 Seguridad</button>
+            </div>
+
+            <!-- Grid de tarjetas — renderizado por home.js -->
+            <div class="cards-grid" id="cardsGrid"></div>
+        </div>
+    </section>
+
+    <!-- ========================= DESTACADOS ========================= -->
+    <section id="destacados">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Servicios destacados</h2>
+                <p>Los más valorados por nuestra comunidad esta semana</p>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="featured-grid reveal">
+
+                <!-- Card principal destacada -->
+                <article class="featured-main card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80"
+                            alt="SEO y posicionamiento web" loading="lazy" />
+                        <span class="card-tag">⭐ Destacado</span>
+                        <button class="card-fav" onclick="toggleFav(this, 'seo', 'SEO y posicionamiento web avanzado')"
+                            aria-label="Guardar en favoritos">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#89D185" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <span class="featured-badge">MÁS POPULAR</span>
+                        <h3 class="card-title">SEO y posicionamiento web avanzado</h3>
+                        <p class="card-desc">Auditorías SEO, estrategia de contenido y optimización técnica para
+                            posicionar tu sitio en los primeros resultados de búsqueda y aumentar tu tráfico orgánico.
+                        </p>
+                        <div class="card-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">5.0 (342 reseñas)</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="detalle.html?id=seo" class="btn-card">Ver detalles</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Mini card 1 -->
+                <article class="mini-card">
+                    <div class="mini-card-img">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&q=80"
+                            alt="Diseño UX/UI" loading="lazy" />
+                    </div>
+                    <div class="mini-card-body">
+                        <h3 class="card-title">Diseño UX/UI profesional</h3>
+                        <p class="card-desc">Interfaces centradas en el usuario</p>
+                        <div class="card-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.9</span>
+                        </div>
+                        <a href="detalle.html?id=4" class="btn-card">Ver detalles</a>
+                    </div>
+                </article>
+
+                <!-- Mini card 2 -->
+                <article class="mini-card">
+                    <div class="mini-card-img">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80"
+                            alt="Ciberseguridad" loading="lazy" />
+                    </div>
+                    <div class="mini-card-body">
+                        <h3 class="card-title">Ciberseguridad empresarial</h3>
+                        <p class="card-desc">Protege tus datos y sistemas</p>
+                        <div class="card-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">4.7</span>
+                        </div>
+                        <a href="detalle.html?id=5" class="btn-card">Ver detalles</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================= TESTIMONIOS ========================= -->
+    <section id="testimonios">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Lo que dicen nuestros usuarios</h2>
+                <p>Experiencias reales de quienes ya impulsan su carrera con nosotros</p>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="testimonios-grid">
+
+                <div class="testimonio-card reveal">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonio-text">Gracias al servicio de desarrollo web pude lanzar mi tienda online en
+                        tiempo récord. El equipo fue increíblemente profesional y el resultado superó todas mis
+                        expectativas.</p>
+                    <div class="testimonio-author">
+                        <div class="author-avatar">C</div>
+                        <div>
+                            <div class="author-name">Carlos Méndez</div>
+                            <div class="author-role">Emprendedor, Bogotá</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonio-card reveal">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonio-text">La consultoría de marketing digital transformó completamente mi presencia
+                        online. En tres meses aumentamos el tráfico orgánico un 240%. Totalmente recomendado.</p>
+                    <div class="testimonio-author">
+                        <div class="author-avatar">L</div>
+                        <div>
+                            <div class="author-name">Laura Gómez</div>
+                            <div class="author-role">Directora de Marketing, Medellín</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonio-card reveal">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonio-text">Los cursos en línea son de una calidad excepcional. Aprendí Angular desde
+                        cero y ahora trabajo en una empresa de tecnología. La plataforma cambió mi vida profesional.</p>
+                    <div class="testimonio-author">
+                        <div class="author-avatar">A</div>
+                        <div>
+                            <div class="author-name">Andrés Torres</div>
+                            <div class="author-role">Desarrollador Frontend, Cali</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================= NEWSLETTER ========================= -->
+    <div style="padding: 0 0 4rem; background: var(--bg);">
+        <div class="newsletter-band reveal" role="complementary">
+            <div class="newsletter-text">
+                <h3>¿Quieres estar al día?</h3>
+                <p>Recibe las últimas novedades, ofertas exclusivas y recursos gratuitos.</p>
+            </div>
+            <div>
+                <div class="newsletter-form">
+                    <input type="email" id="newsletterEmail" placeholder="tu@correo.com"
+                        aria-label="Correo electrónico" />
+                    <button type="button" onclick="subscribeNewsletter()">Suscribirse</button>
+                </div>
+                <p class="newsletter-msg" id="newsletterMsg">✅ ¡Gracias! Te mantendremos informado.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================= FOOTER ========================= -->
+    <footer role="contentinfo">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo">
+                    <div class="nav-logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+                            <path d="M4 6h16M4 10h12M4 14h8" />
+                        </svg>
+                    </div>
+                    Plataforma Digital
+                </a>
+                <p>Plataforma líder en servicios digitales, educativos y tecnológicos diseñados para impulsar tu
+                    crecimiento profesional.</p>
+                <div class="social-row" style="margin-top:1.2rem;">
+                    <div class="social-btn">f</div>
+                    <div class="social-btn">✕</div>
+                    <div class="social-btn">in</div>
+                    <div class="social-btn">ig</div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Menú</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="favoritos.html">Favoritos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="acerca.html">Acerca de</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Categorías</h4>
+                <ul>
+                    <li><a href="servicios.html?cat=tecnologia">Tecnología</a></li>
+                    <li><a href="servicios.html?cat=marketing">Marketing</a></li>
+                    <li><a href="servicios.html?cat=educacion">Educación</a></li>
+                    <li><a href="servicios.html?cat=diseno">Diseño</a></li>
+                    <li><a href="servicios.html?cat=seguridad">Seguridad</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"
+                        stroke-linecap="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    contacto@plataforma.com
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"
+                        stroke-linecap="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.08 2.18 2 2 0 012.08 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.21 7.73a16 16 0 006.06 6.06l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" />
+                    </svg>
+                    +57 300 123 4567
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"
+                        stroke-linecap="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Bogotá, Colombia
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Plataforma de Servicios Digitales. Todos los derechos reservados.</span>
+            <span>Política de privacidad · Términos de uso · Cookies</span>
+        </div>
+    </footer>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ========================= SCRIPTS ========================= -->
+    <!-- Orden importante: data → main → home -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+
+</body>
+
+</html>
