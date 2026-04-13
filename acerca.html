@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataforma Digital — Acerca de</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        .about-hero {
+            background: var(--grad-full);
+            padding: 6rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero h1 {
+            color: white;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .about-hero p {
+            color: rgba(255, 255, 255, .88);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Misión / Visión */
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .mv-card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .mv-card .mv-icon {
+            font-size: 2.5rem;
+            margin-bottom: .75rem;
+        }
+
+        .mv-card h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: .75rem;
+        }
+
+        .mv-card p {
+            font-size: .9rem;
+            color: var(--light);
+            line-height: 1.75;
+        }
+
+        /* Valores */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            transition: transform var(--ease), box-shadow var(--ease);
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .value-icon {
+            font-size: 2.2rem;
+            margin-bottom: .75rem;
+        }
+
+        .value-card h4 {
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: .4rem;
+        }
+
+        .value-card p {
+            font-size: .83rem;
+            color: var(--light);
+        }
+
+        /* Equipo */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .team-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: var(--grad);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .team-name {
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .team-role {
+            font-size: .82rem;
+            color: var(--light);
+            margin-top: .2rem;
+        }
+
+        /* CTA */
+        .cta-band {
+            background: var(--grad);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .cta-band h2 {
+            font-family: 'Lora', serif;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-band p {
+            color: rgba(255, 255, 255, .85);
+            margin-bottom: 1.8rem;
+        }
+
+        @media(max-width:768px) {
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width:480px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <!-- Hero -->
+    <div class="about-hero">
+        <h1>Acerca de Plataforma Digital</h1>
+        <p>Somos una plataforma líder en servicios digitales comprometida con impulsar el crecimiento profesional y
+            empresarial a través de soluciones tecnológicas, educativas y creativas.</p>
+    </div>
+
+    <!-- Misión y Visión -->
+    <section style="background:var(--bg)">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Nuestra misión y visión</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="mv-grid">
+                <div class="mv-card reveal">
+                    <div class="mv-icon">🎯</div>
+                    <h3>Misión</h3>
+                    <p>Facilitar el acceso a servicios digitales de alta calidad que permitan a empresas, emprendedores
+                        y profesionales crecer en el entorno digital, ofreciendo soluciones integrales, confiables y
+                        centradas en el usuario.</p>
+                </div>
+                <div class="mv-card reveal">
+                    <div class="mv-icon">🌟</div>
+                    <h3>Visión</h3>
+                    <p>Ser reconocidos como la plataforma de referencia en servicios digitales en Latinoamérica,
+                        destacando por la innovación continua, la calidad de nuestros servicios y el impacto positivo en
+                        el crecimiento de nuestros clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section style="background:white">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Nuestros valores</h2>
+                <p>Los principios que guían cada decisión que tomamos</p>
+                <div class="section-line"></div>
+            </div>
+            <div class="values-grid">
+                <div class="value-card reveal">
+                    <div class="value-icon">🏆</div>
+                    <h4>Calidad</h4>
+                    <p>Entregamos soluciones de alta calidad que superan las expectativas de nuestros clientes.</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon">💡</div>
+                    <h4>Innovación</h4>
+                    <p>Adoptamos las últimas tecnologías para ofrecer soluciones vanguardistas.</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon">🤝</div>
+                    <h4>Compromiso</h4>
+                    <p>Nos comprometemos plenamente con el éxito de cada proyecto y cliente.</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon">🔒</div>
+                    <h4>Confianza</h4>
+                    <p>Construimos relaciones basadas en la transparencia y la honestidad.</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon">⚡</div>
+                    <h4>Agilidad</h4>
+                    <p>Respondemos rápidamente a las necesidades y cambios del mercado.</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon">🌱</div>
+                    <h4>Crecimiento</h4>
+                    <p>Fomentamos el desarrollo continuo de nuestros clientes y equipo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section style="background:var(--bg)">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Nuestro equipo</h2>
+                <p>Profesionales apasionados por la tecnología y el diseño</p>
+                <div class="section-line"></div>
+            </div>
+            <div class="team-grid">
+                <div class="team-card reveal">
+                    <div class="team-avatar">E</div>
+                    <div class="team-name">Elkin Pedroza</div>
+                    <div class="team-role">Desarrollador Frontend</div>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-avatar">F</div>
+                    <div class="team-name">Ffrancy Huérfano</div>
+                    <div class="team-role">UX/UI Designer</div>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-avatar">J</div>
+                    <div class="team-name">Juan Delgado</div>
+                    <div class="team-role">Desarrollador Fullstack</div>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-avatar">E</div>
+                    <div class="team-name">Edgar Villamizar</div>
+                    <div class="team-role">Arquitecto de Software</div>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-avatar">K</div>
+                    <div class="team-name">Kelnherth Hernández</div>
+                    <div class="team-role">QA & Testing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-band">
+        <h2>¿Listo para impulsar tu negocio?</h2>
+        <p>Explora nuestro catálogo y encuentra el servicio perfecto para ti.</p>
+        <a href="servicios.html" class="btn btn-dark">Ver todos los servicios →</a>
+    </div>
+
+    <div id="footer"></div>
+    <div class="toast" id="toast"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

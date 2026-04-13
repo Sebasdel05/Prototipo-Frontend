@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataforma Digital — Servicios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        .page-hero {
+            background: var(--grad);
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            color: white;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin-bottom: .75rem;
+        }
+
+        .page-hero p {
+            color: rgba(255, 255, 255, .85);
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Mini CRUD */
+        .crud-panel {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .crud-panel h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 1.2rem;
+        }
+
+        .crud-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+
+        .form-group label {
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--mid);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: .65rem 1rem;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid var(--border);
+            font-family: 'DM Sans', sans-serif;
+            font-size: .9rem;
+            color: var(--dark);
+            outline: none;
+            transition: border-color var(--ease);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .form-group.full {
+            grid-column: 1/-1;
+        }
+
+        .crud-btns {
+            grid-column: 1/-1;
+            display: flex;
+            gap: .75rem;
+            justify-content: flex-end;
+            margin-top: .5rem;
+        }
+
+        /* Buscador */
+        .search-bar {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .search-bar input {
+            flex: 1;
+            min-width: 240px;
+            padding: .7rem 1.2rem;
+            border-radius: 50px;
+            border: 1.5px solid var(--border);
+            font-family: 'DM Sans', sans-serif;
+            font-size: .9rem;
+            outline: none;
+            transition: border-color var(--ease);
+        }
+
+        .search-bar input:focus {
+            border-color: var(--primary);
+        }
+
+        .card-delete {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(224, 85, 85, .9);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: .75rem;
+            font-weight: 700;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity var(--ease);
+        }
+
+        .card:hover .card-delete {
+            opacity: 1;
+        }
+
+        @media(max-width:640px) {
+            .crud-form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <div class="page-hero">
+        <h1>Catálogo de Servicios</h1>
+        <p>Explora todos los servicios disponibles y encuentra el que más se ajusta a tus necesidades</p>
+    </div>
+
+    <section>
+        <div class="container">
+
+            <!-- Panel CRUD: Agregar nuevo servicio -->
+            <div class="crud-panel reveal">
+                <h3>➕ Agregar nuevo servicio</h3>
+                <div class="crud-form">
+                    <div class="form-group">
+                        <label for="newTitulo">Título *</label>
+                        <input type="text" id="newTitulo" placeholder="Nombre del servicio" />
+                    </div>
+                    <div class="form-group">
+                        <label for="newCategoria">Categoría *</label>
+                        <select id="newCategoria">
+                            <option value="tecnologia">Tecnología</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="educacion">Educación</option>
+                            <option value="diseno">Diseño</option>
+                            <option value="seguridad">Seguridad</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label for="newDesc">Descripción *</label>
+                        <textarea id="newDesc" rows="2" placeholder="Descripción breve del servicio"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="newImagen">URL de imagen</label>
+                        <input type="url" id="newImagen" placeholder="https://..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="newEstrellas">Calificación</label>
+                        <select id="newEstrellas">
+                            <option value="5">★★★★★ (5)</option>
+                            <option value="4">★★★★☆ (4)</option>
+                            <option value="3">★★★☆☆ (3)</option>
+                        </select>
+                    </div>
+                    <div class="crud-btns">
+                        <button class="btn btn-outline" type="button" onclick="clearForm()">Limpiar</button>
+                        <button class="btn btn-primary" type="button" onclick="addServicio()">Guardar servicio</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buscador y filtros -->
+            <div class="search-bar reveal">
+                <input type="text" id="searchInput" placeholder="🔍 Buscar servicio..." oninput="filterAndRender()" />
+            </div>
+            <div class="categories reveal" id="categoryFilter">
+                <button class="cat-pill active" data-cat="todos">🌐 Todos</button>
+                <button class="cat-pill" data-cat="tecnologia">💻 Tecnología</button>
+                <button class="cat-pill" data-cat="marketing">📈 Marketing</button>
+                <button class="cat-pill" data-cat="educacion">🎓 Educación</button>
+                <button class="cat-pill" data-cat="diseno">🎨 Diseño</button>
+                <button class="cat-pill" data-cat="seguridad">🔐 Seguridad</button>
+            </div>
+
+            <div class="cards-grid" id="cardsGrid"></div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+    <div class="toast" id="toast"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/servicios.js"></script>
+</body>
+
+</html>

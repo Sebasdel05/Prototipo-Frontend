@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataforma Digital — Favoritos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        .page-hero {
+            background: var(--grad);
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            color: white;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin-bottom: .75rem;
+        }
+
+        .page-hero p {
+            color: rgba(255, 255, 255, .85);
+        }
+
+        .fav-counter {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: white;
+            border-radius: 50px;
+            padding: .5rem 1.2rem;
+            font-size: .9rem;
+            font-weight: 600;
+            color: var(--mid);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2.5rem;
+        }
+
+        .fav-counter span {
+            background: var(--grad);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .8rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            opacity: .4;
+        }
+
+        .empty-state h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        .empty-state p {
+            color: var(--light);
+            max-width: 380px;
+        }
+
+        .clear-btn {
+            background: none;
+            border: 1.5px solid #E05555;
+            color: #E05555;
+            padding: .5rem 1.4rem;
+            border-radius: 50px;
+            font-size: .85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--ease);
+        }
+
+        .clear-btn:hover {
+            background: #E05555;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <div class="page-hero">
+        <h1>❤️ Mis Favoritos</h1>
+        <p>Servicios que has guardado para revisar más tarde</p>
+    </div>
+
+    <section>
+        <div class="container">
+            <div id="favsHeader"
+                style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;">
+            </div>
+            <div class="cards-grid" id="favsGrid"></div>
+            <div class="empty-state" id="emptyState" style="display:none">
+                <div class="empty-icon">🤍</div>
+                <h3>No tienes favoritos todavía</h3>
+                <p>Explora el catálogo y guarda los servicios que más te interesen presionando el ícono de corazón.</p>
+                <a href="servicios.html" class="btn btn-primary">Explorar servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+    <div class="toast" id="toast"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/favoritos.js"></script>
+</body>
+
+</html>

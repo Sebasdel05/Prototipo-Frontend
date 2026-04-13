@@ -4,58 +4,456 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plataforma Digital — Servicios Digitales</title>
-
-    <!-- Fuentes -->
+    <title>Plataforma Digital — Inicio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
         href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet" />
-
-    <!-- Estilos globales -->
     <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        /* ── Hero ── */
+        .hero {
+            position: relative;
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5rem 1.5rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 80% 20%, rgba(133, 209, 205, .15) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 10% 80%, rgba(137, 209, 133, .12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .blob-1 {
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(133, 209, 205, .14), transparent 70%);
+            top: -80px;
+            right: -80px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .blob-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(137, 209, 133, .10), transparent 70%);
+            bottom: -40px;
+            left: -40px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: var(--tag-bg);
+            border: 1px solid var(--border);
+            color: var(--mid);
+            font-size: .82rem;
+            font-weight: 600;
+            padding: .4rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            animation: fadeUp .6s ease both;
+        }
+
+        .hero-badge span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: var(--dark);
+            max-width: 720px;
+            margin-bottom: 1.2rem;
+            animation: fadeUp .7s ease .1s both;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            background: var(--grad-full);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--light);
+            max-width: 560px;
+            line-height: 1.7;
+            margin-bottom: 2.2rem;
+            animation: fadeUp .7s ease .2s both;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeUp .7s ease .3s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            margin-top: 3.5rem;
+            overflow: hidden;
+            animation: fadeUp .7s ease .4s both;
+        }
+
+        .stat-item {
+            flex: 1;
+            padding: 1.4rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-item+.stat-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20%;
+            bottom: 20%;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .stat-value {
+            font-family: 'Lora', serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: .82rem;
+            color: var(--light);
+            margin-top: .2rem;
+        }
+
+        /* ── Servicios ── */
+        #servicios {
+            background: white;
+        }
+
+        /* ── Destacados ── */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 1.5rem;
+        }
+
+        .featured-main {
+            grid-row: 1/3;
+        }
+
+        .featured-main .card-img {
+            height: 260px;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: var(--grad);
+            color: white;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: .3rem .85rem;
+            border-radius: 50px;
+            margin-bottom: .75rem;
+        }
+
+        .featured-main .card-body {
+            padding: 1.8rem;
+        }
+
+        .featured-main .card-title {
+            font-size: 1.4rem;
+        }
+
+        .mini-card {
+            background: white;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            overflow: hidden;
+            transition: transform var(--ease), box-shadow var(--ease);
+        }
+
+        .mini-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .mini-card-img {
+            width: 120px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .mini-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mini-card-body {
+            padding: 1.1rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .4rem;
+        }
+
+        .mini-card-body .card-title {
+            font-size: .98rem;
+        }
+
+        .mini-card-body .btn-card {
+            margin-top: .5rem;
+            padding: .5rem 1rem;
+            font-size: .82rem;
+        }
+
+        /* ── Testimonios ── */
+        #testimonios {
+            background: white;
+        }
+
+        .testimonios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonio-card {
+            background: var(--bg);
+            border-radius: var(--radius-sm);
+            padding: 1.8rem;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: box-shadow var(--ease);
+        }
+
+        .testimonio-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .quote-icon {
+            font-family: 'Lora', serif;
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--primary);
+            opacity: .3;
+            position: absolute;
+            top: .8rem;
+            right: 1.5rem;
+        }
+
+        .testimonio-text {
+            font-size: .92rem;
+            color: var(--mid);
+            line-height: 1.75;
+            margin-bottom: 1.2rem;
+            font-style: italic;
+        }
+
+        .testimonio-author {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+        }
+
+        .author-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--grad);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .author-name {
+            font-weight: 600;
+            font-size: .9rem;
+            color: var(--dark);
+        }
+
+        .author-role {
+            font-size: .78rem;
+            color: var(--light);
+        }
+
+        /* ── Newsletter ── */
+        .newsletter-wrap {
+            background: var(--bg);
+            padding: 0 1.5rem 4rem;
+        }
+
+        .newsletter-band {
+            background: var(--grad-full);
+            border-radius: var(--radius);
+            padding: 3rem 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Ccircle cx='30' cy='30' r='30'/%3E%3C/g%3E%3C/svg%3E") repeat;
+        }
+
+        .newsletter-text {
+            position: relative;
+        }
+
+        .newsletter-text h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: .4rem;
+        }
+
+        .newsletter-text p {
+            color: rgba(255, 255, 255, .85);
+            font-size: .95rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: .75rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .newsletter-form input {
+            padding: .78rem 1.4rem;
+            border-radius: 50px;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .9rem;
+            width: 280px;
+            outline: none;
+            color: var(--dark);
+        }
+
+        .newsletter-form button {
+            padding: .78rem 1.8rem;
+            border-radius: 50px;
+            background: var(--dark);
+            color: white;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: filter var(--ease), transform var(--ease);
+        }
+
+        .newsletter-form button:hover {
+            filter: brightness(1.3);
+            transform: translateY(-2px);
+        }
+
+        .newsletter-msg {
+            color: white;
+            font-size: .88rem;
+            margin-top: .5rem;
+            display: none;
+        }
+
+        @media(max-width:900px) {
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-main {
+                grid-row: auto;
+            }
+        }
+
+        @media(max-width:640px) {
+            .hero-stats {
+                flex-direction: column;
+            }
+
+            .stat-item+.stat-item::before {
+                left: 10%;
+                right: 10%;
+                top: 0;
+                bottom: auto;
+                width: auto;
+                height: 1px;
+            }
+
+            .newsletter-wrap {
+                padding: 0 0 3rem;
+            }
+
+            .newsletter-band {
+                border-radius: 0;
+            }
+
+            .newsletter-form input {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ========================= NAVBAR ========================= -->
-    <nav class="navbar" role="navigation" aria-label="Navegación principal">
-        <a href="index.html" class="nav-logo">
-            <div class="nav-logo-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
-                    <path d="M4 6h16M4 10h12M4 14h8" />
-                </svg>
-            </div>
-            Plataforma Digital
-        </a>
+    <!-- Navbar inyectado por main.js -->
+    <div id="navbar"></div>
 
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active">Inicio</a></li>
-            <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="favoritos.html">Favoritos</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="acerca.html">Acerca de</a></li>
-        </ul>
-
-        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
-            <span></span><span></span><span></span>
-        </button>
-    </nav>
-
-    <!-- ========================= HERO ========================= -->
+    <!-- ── HERO ── -->
     <section class="hero" aria-label="Bienvenida">
-        <div class="hero-blob hero-blob-1"></div>
-        <div class="hero-blob hero-blob-2"></div>
-
-        <div class="hero-badge">
-            <span></span>
-            Plataforma líder en servicios digitales
-        </div>
-
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="hero-badge"><span></span>Plataforma líder en servicios digitales</div>
         <h1>Explora nuestros <em>servicios digitales</em></h1>
         <p>Soluciones educativas, tecnológicas y digitales en una sola plataforma para impulsar tu crecimiento
             profesional.</p>
-
         <div class="hero-ctas">
             <a href="servicios.html" class="btn btn-primary">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -66,7 +464,6 @@
             </a>
             <a href="contacto.html" class="btn btn-outline">Contáctanos →</a>
         </div>
-
         <div class="hero-stats container">
             <div class="stat-item">
                 <div class="stat-value">200+</div>
@@ -83,7 +480,7 @@
         </div>
     </section>
 
-    <!-- ========================= SERVICIOS ========================= -->
+    <!-- ── SERVICIOS DISPONIBLES ── -->
     <section id="servicios">
         <div class="container">
             <div class="section-header reveal">
@@ -91,8 +488,6 @@
                 <p>Encuentra el servicio que necesitas para impulsar tu crecimiento</p>
                 <div class="section-line"></div>
             </div>
-
-            <!-- Filtros por categoría -->
             <div class="categories reveal" id="categoryFilter">
                 <button class="cat-pill active" data-cat="todos">🌐 Todos</button>
                 <button class="cat-pill" data-cat="tecnologia">💻 Tecnología</button>
@@ -101,31 +496,26 @@
                 <button class="cat-pill" data-cat="diseno">🎨 Diseño</button>
                 <button class="cat-pill" data-cat="seguridad">🔐 Seguridad</button>
             </div>
-
-            <!-- Grid de tarjetas — renderizado por home.js -->
             <div class="cards-grid" id="cardsGrid"></div>
         </div>
     </section>
 
-    <!-- ========================= DESTACADOS ========================= -->
-    <section id="destacados">
+    <!-- ── DESTACADOS ── -->
+    <section id="destacados" style="background:var(--bg)">
         <div class="container">
             <div class="section-header reveal">
                 <h2>Servicios destacados</h2>
                 <p>Los más valorados por nuestra comunidad esta semana</p>
                 <div class="section-line"></div>
             </div>
-
             <div class="featured-grid reveal">
-
-                <!-- Card principal destacada -->
-                <article class="featured-main card">
+                <article class="card featured-main">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80"
-                            alt="SEO y posicionamiento web" loading="lazy" />
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="SEO"
+                            loading="lazy" />
                         <span class="card-tag">⭐ Destacado</span>
-                        <button class="card-fav" onclick="toggleFav(this, 'seo', 'SEO y posicionamiento web avanzado')"
-                            aria-label="Guardar en favoritos">
+                        <button class="card-fav" onclick="toggleFav(this,'seo','SEO y posicionamiento web avanzado')"
+                            aria-label="Favorito">
                             <svg viewBox="0 0 24 24" fill="none" stroke="#89D185" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path
@@ -137,72 +527,53 @@
                         <span class="featured-badge">MÁS POPULAR</span>
                         <h3 class="card-title">SEO y posicionamiento web avanzado</h3>
                         <p class="card-desc">Auditorías SEO, estrategia de contenido y optimización técnica para
-                            posicionar tu sitio en los primeros resultados de búsqueda y aumentar tu tráfico orgánico.
-                        </p>
-                        <div class="card-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-text">5.0 (342 reseñas)</span>
-                        </div>
-                        <div class="card-footer">
-                            <a href="detalle.html?id=seo" class="btn-card">Ver detalles</a>
-                        </div>
+                            posicionar tu sitio en los primeros resultados y aumentar tu tráfico orgánico.</p>
+                        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-text">5.0 (342
+                                reseñas)</span></div>
+                        <div class="card-footer"><a href="detalle.html?id=2" class="btn-card">Ver detalles</a></div>
                     </div>
                 </article>
-
-                <!-- Mini card 1 -->
                 <article class="mini-card">
-                    <div class="mini-card-img">
-                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&q=80"
-                            alt="Diseño UX/UI" loading="lazy" />
-                    </div>
+                    <div class="mini-card-img"><img
+                            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&q=80" alt="UX/UI"
+                            loading="lazy" /></div>
                     <div class="mini-card-body">
                         <h3 class="card-title">Diseño UX/UI profesional</h3>
                         <p class="card-desc">Interfaces centradas en el usuario</p>
-                        <div class="card-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-text">4.9</span>
+                        <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-text">4.9</span>
                         </div>
                         <a href="detalle.html?id=4" class="btn-card">Ver detalles</a>
                     </div>
                 </article>
-
-                <!-- Mini card 2 -->
                 <article class="mini-card">
-                    <div class="mini-card-img">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80"
-                            alt="Ciberseguridad" loading="lazy" />
-                    </div>
+                    <div class="mini-card-img"><img
+                            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80"
+                            alt="Ciberseguridad" loading="lazy" /></div>
                     <div class="mini-card-body">
                         <h3 class="card-title">Ciberseguridad empresarial</h3>
                         <p class="card-desc">Protege tus datos y sistemas</p>
-                        <div class="card-rating">
-                            <span class="stars">★★★★☆</span>
-                            <span class="rating-text">4.7</span>
+                        <div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-text">4.7</span>
                         </div>
                         <a href="detalle.html?id=5" class="btn-card">Ver detalles</a>
                     </div>
                 </article>
-
             </div>
         </div>
     </section>
 
-    <!-- ========================= TESTIMONIOS ========================= -->
+    <!-- ── TESTIMONIOS ── -->
     <section id="testimonios">
         <div class="container">
             <div class="section-header reveal">
                 <h2>Lo que dicen nuestros usuarios</h2>
-                <p>Experiencias reales de quienes ya impulsan su carrera con nosotros</p>
+                <p>Experiencias reales de quienes impulsan su carrera con nosotros</p>
                 <div class="section-line"></div>
             </div>
-
             <div class="testimonios-grid">
-
                 <div class="testimonio-card reveal">
                     <div class="quote-icon">"</div>
                     <p class="testimonio-text">Gracias al servicio de desarrollo web pude lanzar mi tienda online en
-                        tiempo récord. El equipo fue increíblemente profesional y el resultado superó todas mis
-                        expectativas.</p>
+                        tiempo récord. El resultado superó todas mis expectativas.</p>
                     <div class="testimonio-author">
                         <div class="author-avatar">C</div>
                         <div>
@@ -211,11 +582,10 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="testimonio-card reveal">
                     <div class="quote-icon">"</div>
-                    <p class="testimonio-text">La consultoría de marketing digital transformó completamente mi presencia
-                        online. En tres meses aumentamos el tráfico orgánico un 240%. Totalmente recomendado.</p>
+                    <p class="testimonio-text">La consultoría de marketing digital transformó mi presencia online. En
+                        tres meses aumentamos el tráfico orgánico un 240%.</p>
                     <div class="testimonio-author">
                         <div class="author-avatar">L</div>
                         <div>
@@ -224,11 +594,10 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="testimonio-card reveal">
                     <div class="quote-icon">"</div>
                     <p class="testimonio-text">Los cursos en línea son de una calidad excepcional. Aprendí Angular desde
-                        cero y ahora trabajo en una empresa de tecnología. La plataforma cambió mi vida profesional.</p>
+                        cero y ahora trabajo en una empresa de tecnología.</p>
                     <div class="testimonio-author">
                         <div class="author-avatar">A</div>
                         <div>
@@ -237,17 +606,16 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ========================= NEWSLETTER ========================= -->
-    <div style="padding: 0 0 4rem; background: var(--bg);">
-        <div class="newsletter-band reveal" role="complementary">
+    <!-- ── NEWSLETTER ── -->
+    <div class="newsletter-wrap">
+        <div class="newsletter-band reveal container">
             <div class="newsletter-text">
                 <h3>¿Quieres estar al día?</h3>
-                <p>Recibe las últimas novedades, ofertas exclusivas y recursos gratuitos.</p>
+                <p>Recibe novedades, ofertas exclusivas y recursos gratuitos.</p>
             </div>
             <div>
                 <div class="newsletter-form">
@@ -260,96 +628,13 @@
         </div>
     </div>
 
-    <!-- ========================= FOOTER ========================= -->
-    <footer role="contentinfo">
-        <div class="footer-grid">
-
-            <div class="footer-brand">
-                <a href="index.html" class="nav-logo">
-                    <div class="nav-logo-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
-                            <path d="M4 6h16M4 10h12M4 14h8" />
-                        </svg>
-                    </div>
-                    Plataforma Digital
-                </a>
-                <p>Plataforma líder en servicios digitales, educativos y tecnológicos diseñados para impulsar tu
-                    crecimiento profesional.</p>
-                <div class="social-row" style="margin-top:1.2rem;">
-                    <div class="social-btn">f</div>
-                    <div class="social-btn">✕</div>
-                    <div class="social-btn">in</div>
-                    <div class="social-btn">ig</div>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h4>Menú</h4>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="servicios.html">Servicios</a></li>
-                    <li><a href="favoritos.html">Favoritos</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="acerca.html">Acerca de</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Categorías</h4>
-                <ul>
-                    <li><a href="servicios.html?cat=tecnologia">Tecnología</a></li>
-                    <li><a href="servicios.html?cat=marketing">Marketing</a></li>
-                    <li><a href="servicios.html?cat=educacion">Educación</a></li>
-                    <li><a href="servicios.html?cat=diseno">Diseño</a></li>
-                    <li><a href="servicios.html?cat=seguridad">Seguridad</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Contacto</h4>
-                <div class="footer-contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"
-                        stroke-linecap="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                        <polyline points="22,6 12,13 2,6" />
-                    </svg>
-                    contacto@plataforma.com
-                </div>
-                <div class="footer-contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"
-                        stroke-linecap="round">
-                        <path
-                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.08 2.18 2 2 0 012.08 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.21 7.73a16 16 0 006.06 6.06l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" />
-                    </svg>
-                    +57 300 123 4567
-                </div>
-                <div class="footer-contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"
-                        stroke-linecap="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    Bogotá, Colombia
-                </div>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <span>© 2026 Plataforma de Servicios Digitales. Todos los derechos reservados.</span>
-            <span>Política de privacidad · Términos de uso · Cookies</span>
-        </div>
-    </footer>
-
-    <!-- Toast notification -->
+    <!-- Footer inyectado por main.js -->
+    <div id="footer"></div>
     <div class="toast" id="toast"></div>
 
-    <!-- ========================= SCRIPTS ========================= -->
-    <!-- Orden importante: data → main → home -->
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
     <script src="js/home.js"></script>
-
 </body>
 
 </html>
