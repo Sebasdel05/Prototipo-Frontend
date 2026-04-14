@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto - Plataforma Digital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-gray-800">
+
+  <!-- HEADER -->
+  <header class="bg-green-400 text-white">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div class="font-semibold text-lg">📘 Plataforma Digital</div>
+      <nav class="space-x-6 text-sm">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="contacto.html" class="underline font-semibold">Contacto</a>
+        <a href="acerca.html">Acerca de</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <section class="max-w-3xl mx-auto py-16 px-6">
+    <h1 class="text-3xl font-bold mb-6 text-center">Contáctanos</h1>
+
+    <form id="formulario" class="space-y-4 bg-gray-50 p-6 rounded-lg shadow">
+
+      <input type="text" id="nombre" placeholder="Nombre"
+        class="w-full p-3 border rounded">
+
+      <input type="email" id="correo" placeholder="Correo"
+        class="w-full p-3 border rounded">
+
+      <textarea id="mensaje" placeholder="Mensaje"
+        class="w-full p-3 border rounded"></textarea>
+
+      <button type="submit"
+        class="bg-green-400 text-white px-6 py-3 rounded hover:bg-green-500">
+        Enviar
+      </button>
+
+      <p id="error" class="text-red-500"></p>
+
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-green-400 text-white mt-20 text-center py-6">
+    © Plataforma Digital
+  </footer>
+
+  <!-- SCRIPT VALIDACIÓN -->
+  <script>
+    const form = document.getElementById("formulario");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value;
+      const correo = document.getElementById("correo").value;
+      const mensaje = document.getElementById("mensaje").value;
+      const error = document.getElementById("error");
+
+      error.textContent = "";
+
+      if (!nombre || !correo || !mensaje) {
+        error.textContent = "Todos los campos son obligatorios";
+        return;
+      }
+
+      if (!correo.includes("@")) {
+        error.textContent = "Correo inválido";
+        return;
+      }
+
+      alert("Mensaje enviado correctamente ✅");
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
