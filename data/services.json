@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "name": "Desarrollo Web Empresarial",
+    "category": "Tecnologia",
+    "shortDescription": "Sitios modernos, optimizados y escalables.",
+    "description": "Servicio enfocado en la creacion de plataformas web corporativas con enfoque UX/UI, rendimiento y SEO.",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    "rating": 5,
+    "featured": true,
+    "benefits": ["Arquitectura escalable", "SEO tecnico", "UI responsive"]
+  },
+  {
+    "id": 2,
+    "name": "Consultoria de Marketing Digital",
+    "category": "Marketing",
+    "shortDescription": "Estrategias para crecer audiencias y ventas.",
+    "description": "Planeacion y ejecucion de estrategias de marketing digital para captar leads y fortalecer posicionamiento.",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    "rating": 4,
+    "featured": true,
+    "benefits": ["Analitica accionable", "Campanas multicanal", "Growth marketing"]
+  },
+  {
+    "id": 3,
+    "name": "Plataforma de Aprendizaje Online",
+    "category": "Educacion",
+    "shortDescription": "Cursos interactivos para formacion continua.",
+    "description": "Desarrollo y gestion de cursos virtuales con seguimiento de progreso y actividades interactivas.",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    "rating": 5,
+    "featured": true,
+    "benefits": ["Contenido multimedia", "Seguimiento academico", "Experiencia gamificada"]
+  },
+  {
+    "id": 4,
+    "name": "Diseno de Identidad Visual",
+    "category": "Diseno",
+    "shortDescription": "Construye una marca consistente y profesional.",
+    "description": "Creacion de sistemas visuales para marcas digitales: logo, paleta, tipografia y guias de aplicacion.",
+    "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+    "rating": 4,
+    "featured": false,
+    "benefits": ["Manual de marca", "Assets exportables", "Coherencia visual"]
+  },
+  {
+    "id": 5,
+    "name": "Auditoria de Ciberseguridad",
+    "category": "Seguridad",
+    "shortDescription": "Evalua riesgos y fortalece tu proteccion.",
+    "description": "Analisis de vulnerabilidades y plan de mitigacion para aplicaciones y procesos digitales.",
+    "image": "https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&w=1200&q=80",
+    "rating": 5,
+    "featured": false,
+    "benefits": ["Reporte tecnico", "Recomendaciones priorizadas", "Buenas practicas"]
+  }
+]
