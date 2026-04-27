@@ -1,0 +1,13 @@
+[build]
+  base = "plataforma-servicios-digitales"
+  command = "npm install --include=dev --no-audit --no-fund && npm run build"
+  publish = "dist/plataforma-servicios-digitales/browser"
+
+[build.environment]
+  NODE_ENV = "development"
+  NPM_FLAGS = "--include=dev"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
